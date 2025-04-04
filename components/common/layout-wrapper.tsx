@@ -13,18 +13,24 @@ const LayoutWrapper = ({ children }: Props) => {
   return (
     <Provider store={store}>
       <ChakraProvider>
-        <Navbar />
+        <Box
+          maxWidth='1440px'
+          width='100%'
+          mx='auto'
+        >
+          <Navbar />
 
-        <Flex gap={{ base: '48px' }}>
-          <Sidebar />
+          <Flex gap={{ base: '48px' }}>
+            <Sidebar />
 
-          <Box
-            minH={{ base: '86vh' }}
-            width='100%'
-          >
-            {children}
-          </Box>
-        </Flex>
+            <Box
+              minH={{ base: '86vh' }}
+              width='100%'
+            >
+              {children}
+            </Box>
+          </Flex>
+        </Box>
       </ChakraProvider>
     </Provider>
   );
