@@ -6,6 +6,5 @@ export const system = createSystem(defaultConfig, {
     tokens: {
       fonts,
     },
-
   },
 });

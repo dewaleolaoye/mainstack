@@ -1,9 +1,13 @@
 'use client';
 
-import { ChakraProvider as CProvider } from '@chakra-ui/react';
+import { Box, ChakraProvider as CProvider } from '@chakra-ui/react';
 import { type ColorModeProviderProps } from './color-mode';
 import { system } from '@/theme';
 
 export function ChakraProvider(props: ColorModeProviderProps) {
-  return <CProvider value={system}>{props.children}</CProvider>;
+  return (
+    <CProvider value={system}>
+      <Box padding='20px'>{props.children}</Box>
+    </CProvider>
+  );
 }
