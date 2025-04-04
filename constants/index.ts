@@ -8,22 +8,22 @@ export const navbarLinks = [
   },
   {
     title: 'Analytics',
-    href: '/',
+    href: '/analytics',
     src: AnalyticsSVG
   },
   {
     title: 'Revenue',
-    href: '/',
+    href: '/revenue',
     src: RevenueSVG
   },
   {
     title: 'CRM',
-    href: '/',
+    href: '/crm',
     src: CrmSVG
   },
   {
     title: 'Apps',
-    href: '/',
+    href: '/#',
     src: AppSVG
   },
 ];

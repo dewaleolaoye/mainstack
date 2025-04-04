@@ -3,8 +3,10 @@ import { navbarLinks } from '@/constants';
 import { Avatar, Box, Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
+  const pathname = usePathname();
   return (
     <Box
       padding={{ base: '2px 10px 8px 16px' }}
@@ -30,6 +32,7 @@ const Navbar = () => {
 
         <Flex gap={{ base: '24px' }}>
           {navbarLinks.map(({ href, src: Icon, title }) => {
+            const isActive = pathname === href;
             return (
               <Link
                 key={title}
@@ -38,18 +41,17 @@ const Navbar = () => {
                 <Flex
                   alignItems='center'
                   gap='8px'
-                  color='#56616B'
+                  color={isActive ? '#fff' : '#56616B'}
                   justifyContent='center'
+                  bg={isActive ? '#131316' : 'transparent'}
                   padding={{ base: '8px 18px' }}
                   borderRadius='100px'
                   transition='all 0.5s ease-in'
                   _hover={{
-                    bg: '#EFF1F6',
+                    bg: isActive ? '#131316' : '#EFF1F6',
                   }}
                 >
-                  <Icon
-                  // stroke={isActive ? '#fff' : '#00050A'}
-                  />
+                  <Icon fill={isActive ? '#fff' : '#56616B'} />
 
                   <Text
                     lineHeight='24px'
