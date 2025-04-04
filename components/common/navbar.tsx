@@ -1,12 +1,14 @@
 'use client';
 import { navbarLinks } from '@/constants';
-import { Avatar, Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import NavAvatar from './nav-avatar';
 
 const Navbar = () => {
   const pathname = usePathname();
+
   return (
     <Box
       padding={{ base: '2px 10px 8px 16px' }}
@@ -89,33 +91,7 @@ const Navbar = () => {
             />
           </Link>
 
-          <Flex
-            bg='#EFF1F6'
-            padding='4px 4px'
-            borderRadius='100px'
-            w='81px'
-            gap={{ base: '8px' }}
-            cursor='pointer'
-          >
-            <Avatar.Root
-              background='linear-gradient(to right, #5C6670 , #131316)'
-              width='32px'
-              height='32px'
-            >
-              <Avatar.Fallback
-                name='Shane Nelson'
-                color='#fff'
-                fontWeight='600'
-              />
-            </Avatar.Root>
-
-            <Image
-              src='/svgs/menu.svg'
-              alt='menu'
-              width={24}
-              height={24}
-            />
-          </Flex>
+          <NavAvatar />
         </Flex>
       </Flex>
     </Box>
