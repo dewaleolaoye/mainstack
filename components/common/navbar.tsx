@@ -14,6 +14,7 @@ const Navbar = () => {
       borderRadius='100px'
       boxShadow='0px 2px 4px 0px #2D3B430D, 0px 2px 6px 0px #2D3B430F'
       as='nav'
+      mb='24px'
     >
       <Flex
         justifyContent='space-between'

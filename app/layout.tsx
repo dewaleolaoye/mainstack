@@ -18,15 +18,22 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <ChakraProvider>
-          <Navbar />
+        <main>
+          <ChakraProvider>
+            <Navbar />
 
-          <Flex gap={{ base: '48px' }}>
-            <Sidebar />
+            <Flex gap={{ base: '48px' }}>
+              <Sidebar />
 
-            <Box>{children}</Box>
-          </Flex>
-        </ChakraProvider>
+              <Box
+                minH={{ base: '86vh' }}
+                width='100%'
+              >
+                {children}
+              </Box>
+            </Flex>
+          </ChakraProvider>
+        </main>
       </body>
     </html>
   );
