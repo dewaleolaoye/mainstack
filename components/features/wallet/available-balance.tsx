@@ -1,8 +1,13 @@
+'use client';
 import { Box, Flex } from '@chakra-ui/react';
 import AmountCard from './amount-card';
 import { Button } from '@/components/ui/button';
+import { useGetWalletQuery } from '@/store/request';
 
 const AvailableBalance = () => {
+  const { data, isSuccess } = useGetWalletQuery({});
+  console.log(data, 'THE DATA');
+
   return (
     <Box>
       <Flex
@@ -12,7 +17,7 @@ const AvailableBalance = () => {
         width='100%'
       >
         <AmountCard
-          amount={120500}
+          amount={isSuccess ? data?.balance : 0}
           title='Available Balance'
           amountProps={{
             fontSize: '36px',
