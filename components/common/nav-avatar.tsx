@@ -2,7 +2,6 @@
 import { useGetUserQuery } from '@/store/request';
 import { Avatar, Flex } from '@chakra-ui/react';
 import Image from 'next/image';
-import React from 'react';
 
 const NavAvatar = () => {
   const { data, isSuccess } = useGetUserQuery({});

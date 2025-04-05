@@ -2,13 +2,14 @@ import { Box, Flex } from '@chakra-ui/react';
 import WalletAmount from '@/components/features/wallet/wallet-amount';
 import Charts from '@/components/features/chart/charts';
 import AvailableBalance from '@/components/features/wallet/available-balance';
+import TransactionsData from '@/components/features/transactions/transactions-data';
 
 export default function Home() {
   return (
     <Box>
       <Flex
-        // justifyContent=''
         gap={{ base: '48px' }}
+        mb={{ base: '64px' }}
       >
         <Box
           width='100%'
@@ -26,6 +27,8 @@ export default function Home() {
           <WalletAmount />
         </Box>
       </Flex>
+
+      <TransactionsData />
     </Box>
   );
 }

@@ -25,8 +25,8 @@ export interface ITransactions {
   amount: number;
   metadata: Metadata;
   payment_reference: string;
-  status: string;
-  type: string;
+  status: 'successful' | 'pending';
+  type: "withdrawal" | "deposit";
   date: string;
 }
 

@@ -21,7 +21,7 @@ export const requestApi = createApi({
 
     getTransactions: builder.query({
       query: () => `/transactions`,
-      transformResponse: (response: ITransactions) => response,
+      transformResponse: (response: ITransactions[]) => response,
     }),
   }),
 });

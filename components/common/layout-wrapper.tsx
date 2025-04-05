@@ -26,6 +26,8 @@ const LayoutWrapper = ({ children }: Props) => {
             <Box
               minH={{ base: '86vh' }}
               width='100%'
+              maxWidth={{ base: '1159px', '2xl': '1250px' }}
+              mx='auto'
             >
               {children}
             </Box>
