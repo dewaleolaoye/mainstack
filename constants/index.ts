@@ -31,3 +31,33 @@ export const navbarLinks = [
 export const configs = {
   BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
 };
+
+export const chartOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      display: false,
+    },
+    tooltip: {
+      intersect: false,
+    },
+  },
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+    y: {
+      min: 150,
+      display: false,
+    },
+  },
+  elements: {
+    point: {
+      radius: 0,
+      hoverRadius: 6,
+    },
+  }
+};

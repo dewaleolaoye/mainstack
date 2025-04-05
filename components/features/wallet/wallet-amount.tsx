@@ -9,7 +9,7 @@ const WalletAmount = () => {
     <Box>
       <VStack
         alignItems='revert-layer'
-        gap='24px'
+        gap='32px'
       >
         <AmountCard
           title='Ledger Balance'
