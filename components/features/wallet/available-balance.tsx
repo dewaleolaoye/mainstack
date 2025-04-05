@@ -6,7 +6,6 @@ import { useGetWalletQuery } from '@/store/request';
 
 const AvailableBalance = () => {
   const { data, isSuccess } = useGetWalletQuery({});
-  console.log(data, 'THE DATA');
 
   return (
     <Box>
