@@ -1,7 +1,7 @@
 'use client';
 import { useGetWalletQuery } from '@/store/request';
 import { Box, VStack } from '@chakra-ui/react';
-import AmountCard from './amount-card';
+import AmountCard from '../amount-card';
 
 const WalletAmount = () => {
   const { data, isSuccess } = useGetWalletQuery({});

@@ -1,8 +1,8 @@
 'use client';
 import { Flex } from '@chakra-ui/react';
-import AmountCard from './amount-card';
 import { Button } from '@/components/ui/button';
 import { useGetWalletQuery } from '@/store/request';
+import AmountCard from '../amount-card';
 
 const AvailableBalance = () => {
   const { data, isSuccess } = useGetWalletQuery({});
