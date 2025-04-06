@@ -77,13 +77,14 @@ const Sidebar = () => {
                   <Link href={href}>
                     <Center
                       key={name}
-                      transition='all 0.5s ease-out'
                       borderRadius='100%'
                       width='32px'
                       height='32px'
+                      transition='all 0.5s ease-out'
                       p='4px'
                       _hover={{
                         bg: '#EFF1F6',
+                        p: '6px',
                       }}
                     >
                       <Image
