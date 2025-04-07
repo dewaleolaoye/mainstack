@@ -1,38 +1,76 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
-import Image from 'next/image';
+import { Button, CloseButton, Drawer, DrawerTrigger, Flex, Text } from '@chakra-ui/react';
+import FilterButton from './filter-button';
+import FilterDateCard from './filter-date-card';
 
 const FilterTransactions = () => {
+  const filters = [
+    {
+      title: 'Today',
+      value: 'today',
+    },
+    {
+      title: 'Last 7 days',
+      value: 'last-7-days',
+    },
+    {
+      title: 'This month',
+      value: 'this-month',
+    },
+    {
+      title: 'Last 3 months',
+      value: 'last-3-months',
+    },
+  ];
   return (
-    <Box
-      bg='#EFF1F6'
-      borderRadius='100px'
-      padding='12px 20px'
-      cursor='pointer'
-    >
-      <Flex
-        gap='8px'
-        justifyContent='center'
-        alignItems='center'
+    <>
+      <Drawer.Root
+        size='md'
+        preventScroll
       >
-        <Text
-          letterSpacing='-0.4px'
-          fontSize={{ base: '16px' }}
-          fontWeight='600'
-          lineHeight={{ base: '24px' }}
-        >
-          Filter
-        </Text>
+        <DrawerTrigger>
+          <FilterButton count={3} />
+        </DrawerTrigger>
 
-        <Box mt='2.5px'>
-          <Image
-            src='/svgs/arrow-down.svg'
-            width={20}
-            height={20}
-            alt='arrow down'
-          />
-        </Box>
-      </Flex>
-    </Box>
+        <Drawer.Backdrop />
+        <Drawer.Positioner>
+          <Drawer.Content
+            borderRadius='20px'
+            padding='20px'
+            maxW='456px'
+          >
+            <Text
+              fontWeight='700'
+              fontSize='24px'
+              mb='32px'
+            >
+              Filter
+            </Text>
+
+            <Drawer.Body>
+              <Flex gap='8px'>
+                {filters.map(({ title, value }) => (
+                  <FilterDateCard
+                    key={title}
+                    title={title}
+                    onClick={() => console.log(value)}
+                  />
+                ))}
+              </Flex>
+            </Drawer.Body>
+            <Drawer.Footer>
+              <Drawer.ActionTrigger asChild>
+                <Button variant='outline'>Cancel</Button>
+              </Drawer.ActionTrigger>
+              <Button>Save</Button>
+            </Drawer.Footer>
+
+            <Drawer.CloseTrigger asChild>
+              <CloseButton size='sm' />
+            </Drawer.CloseTrigger>
+          </Drawer.Content>
+        </Drawer.Positioner>
+      </Drawer.Root>
+    </>
   );
 };
 

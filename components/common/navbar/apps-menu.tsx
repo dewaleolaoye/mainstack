@@ -22,10 +22,6 @@ const AppsMenu = () => {
       <Menu.Root
         open={open}
         onInteractOutside={() => setOpen(false)}
-        // positioning={{
-        //   gutter: 8,
-        //   shift: 8,
-        // }}
       >
         <MenuTrigger
           onClick={() => setOpen(!open)}
