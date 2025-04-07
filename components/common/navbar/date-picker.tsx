@@ -73,9 +73,13 @@ const DatePicker = ({ selected, onChange }: DatePickerProps) => {
           border: none;
           padding-top: 16px;
         }
+        .react-datepicker__day-names {
+          display: none;
+        }
+
         .react-datepicker__month {
           margin: 0;
-          padding: 16px;
+          padding: 8px;
         }
         .react-datepicker__day-name {
           color: #56616b;

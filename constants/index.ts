@@ -150,3 +150,32 @@ export const transactionStatusList = [
     value: 'failed',
   },
 ];
+
+
+export const profieLinks = [
+  {
+    name: 'Settings',
+    src: '/svgs/link-bio.svg',
+    href: '/',
+  },
+  {
+    name: 'Purchase History',
+    src: '/svgs/store.svg',
+    href: '/',
+  },
+  {
+    name: 'Refer and Earn',
+    src: '/svgs/media-kit.svg',
+    href: '/',
+  },
+  {
+    name: 'Integrations',
+    src: '/svgs/invoicing.svg',
+    href: '/',
+  },
+  {
+    name: 'Report Bug',
+    src: '/svgs/store.svg',
+    href: '/',
+  },
+];

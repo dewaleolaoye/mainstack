@@ -49,13 +49,15 @@ const MenuItem = ({ description, src, title, ...props }: Props) => {
             {title}
           </Text>
 
-          <Text
-            fontWeight='500'
-            color='#56616B'
-            fontSize='12px'
-          >
-            {description}
-          </Text>
+          {description && (
+            <Text
+              fontWeight='500'
+              color='#56616B'
+              fontSize='12px'
+            >
+              {description}
+            </Text>
+          )}
         </Box>
       </Flex>
     </Menu.Item>
