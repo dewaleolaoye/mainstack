@@ -2,30 +2,9 @@ import { Box, Center } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Tooltip } from '../ui/tooltip';
+import { sidebarLinks } from '@/constants';
 
 const Sidebar = () => {
-  const links = [
-    {
-      name: 'Link in Bio',
-      src: '/svgs/link-bio.svg',
-      href: '/',
-    },
-    {
-      name: 'Store',
-      src: '/svgs/store.svg',
-      href: '/',
-    },
-    {
-      name: 'Media Kit',
-      src: '/svgs/media-kit.svg',
-      href: '/',
-    },
-    {
-      name: 'Invoicing',
-      src: '/svgs/invoicing.svg',
-      href: '/',
-    },
-  ];
   return (
     <Box
       position='sticky'
@@ -50,7 +29,7 @@ const Sidebar = () => {
             flexDir='column'
             gap='12px'
           >
-            {links.map(({ src, name, href }) => {
+            {sidebarLinks.slice(0, 4).map(({ src, name, href }) => {
               return (
                 <Tooltip
                   key={name}
@@ -89,7 +68,7 @@ const Sidebar = () => {
                     >
                       <Image
                         src={src}
-                        alt='media kit'
+                        alt={name}
                         width={24}
                         height={24}
                       />

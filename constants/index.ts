@@ -1,4 +1,4 @@
-import { AnalyticsSVG, AppSVG, CrmSVG, HomeSVG, RevenueSVG } from "@/public/svgs";
+import { AnalyticsSVG, CrmSVG, HomeSVG, RevenueSVG } from "@/public/svgs";
 
 export const navbarLinks = [
   {
@@ -20,11 +20,6 @@ export const navbarLinks = [
     title: 'CRM',
     href: '/crm',
     src: CrmSVG
-  },
-  {
-    title: 'Apps',
-    href: '/#',
-    src: AppSVG
   },
 ];
 
@@ -61,3 +56,36 @@ export const chartOptions = {
     },
   }
 };
+
+export const sidebarLinks = [
+  {
+    name: 'Link in Bio',
+    src: '/svgs/link-bio.svg',
+    href: '/',
+    description: 'Manage your Link in Bio'
+  },
+  {
+    name: 'Store',
+    src: '/svgs/store.svg',
+    href: '/',
+    description: 'Manage your Store activities'
+  },
+  {
+    name: 'Media Kit',
+    src: '/svgs/media-kit.svg',
+    href: '/',
+    description: 'Manage your Media Kit'
+  },
+  {
+    name: 'Invoicing',
+    src: '/svgs/invoicing.svg',
+    href: '/',
+    description: 'Manage your Invoices'
+  },
+  {
+    name: 'Bookings',
+    src: '/svgs/store.svg',
+    href: '/',
+    description: 'Manage your Bookings'
+  },
+];

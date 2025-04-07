@@ -1,10 +1,12 @@
 'use client';
 import { navbarLinks } from '@/constants';
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import NavAvatar from './nav-avatar';
+import NavTab from './nav-tab';
+import AppsMenu from './apps-menu';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -17,6 +19,7 @@ const Navbar = () => {
       boxShadow='0px 2px 4px 0px #2D3B430D, 0px 2px 6px 0px #2D3B430F'
       as='nav'
       mb={{ base: '48px' }}
+      position='relative'
     >
       <Flex
         justifyContent='space-between'
@@ -34,39 +37,23 @@ const Navbar = () => {
         </Box>
 
         <Flex gap={{ base: '24px' }}>
-          {navbarLinks.map(({ href, src: Icon, title }) => {
+          {navbarLinks.map(({ href, src, title }) => {
             const isActive = pathname === href;
             return (
               <Link
                 key={title}
                 href={href}
               >
-                <Flex
-                  alignItems='center'
-                  gap='8px'
-                  color={isActive ? '#fff' : '#56616B'}
-                  justifyContent='center'
-                  bg={isActive ? '#131316' : 'transparent'}
-                  padding={{ base: '8px 18px' }}
-                  borderRadius='100px'
-                  transition='all 0.5s ease-in'
-                  _hover={{
-                    bg: isActive ? '#131316' : '#EFF1F6',
-                  }}
-                >
-                  <Icon fill={isActive ? '#fff' : '#56616B'} />
-
-                  <Text
-                    lineHeight='24px'
-                    letterSpacing='-0.4px'
-                    fontWeight='600'
-                  >
-                    {title}
-                  </Text>
-                </Flex>
+                <NavTab
+                  icon={src}
+                  isActive={isActive}
+                  title={title}
+                />
               </Link>
             );
           })}
+
+          <AppsMenu />
         </Flex>
 
         <Flex
