@@ -1,11 +1,12 @@
 'use client';
-import { CloseButton, Drawer, DrawerTrigger, Flex, Text, VStack } from '@chakra-ui/react';
+import { Box, CloseButton, Drawer, DrawerTrigger, Flex, Text, VStack } from '@chakra-ui/react';
 import FilterButton from './filter-button';
 import FilterDateCard from './filter-date-card';
 import TransactionFilterSelect from './TransactionFilterSelect';
 import { Button } from '@/components/ui/button';
 import { filterList, transactionStatusList, transactionTypeList } from '@/constants';
 import { useState } from 'react';
+import DatePicker from '@/components/common/navbar/date-picker';
 
 const FilterTransactions = () => {
   const [transactionType, setTransactionType] = useState<string[]>([]);
@@ -14,6 +15,18 @@ const FilterTransactions = () => {
   console.log({ transactionStatus, transactionType });
 
   const isDisabled = transactionType.length === 0 && transactionStatus.length === 0;
+
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
+  const handleStartDateChange = (date: Date) => {
+    setStartDate(date);
+  };
+
+  const handleEndDateChange = (date: Date) => {
+    setEndDate(date);
+  };
+
   return (
     <>
       <Drawer.Root
@@ -42,7 +55,7 @@ const FilterTransactions = () => {
             <Drawer.Body>
               <VStack
                 alignItems='revert-layer'
-                gap='20px'
+                gap='24px'
               >
                 <Flex gap='8px'>
                   {filterList.map(({ title, value }) => (
@@ -53,6 +66,27 @@ const FilterTransactions = () => {
                     />
                   ))}
                 </Flex>
+
+                <Box>
+                  <Text
+                    fontWeight='600'
+                    fontSize='16px'
+                    mb='8px'
+                  >
+                    Date Range
+                  </Text>
+
+                  <Flex gap='8px'>
+                    <DatePicker
+                      selected={startDate}
+                      onChange={handleStartDateChange}
+                    />
+                    <DatePicker
+                      selected={endDate}
+                      onChange={handleEndDateChange}
+                    />
+                  </Flex>
+                </Box>
 
                 <TransactionFilterSelect
                   name='Transaction Type'

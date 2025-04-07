@@ -1,5 +1,5 @@
 'use client';
-import { createListCollection, SelectValueChangeDetails } from '@chakra-ui/react';
+import { Box, createListCollection, SelectValueChangeDetails } from '@chakra-ui/react';
 import {
   SelectContent,
   SelectItem,
@@ -29,47 +29,47 @@ const TransactionFilterSelect = ({ onValueChange, items, name, defaultValue }: P
     items,
   });
 
-  console.log(defaultValue, 'def');
-
   return (
-    <SelectRoot
-      collection={list}
-      name={name.toLowerCase()}
-      onValueChange={onValueChange}
-      defaultValue={defaultValue}
-      multiple
-      required
-    >
-      <SelectLabel
-        fontWeight='600'
-        fontSize='16px'
-        textTransform='capitalize'
+    <Box>
+      <SelectRoot
+        collection={list}
+        name={name.toLowerCase()}
+        onValueChange={onValueChange}
+        defaultValue={defaultValue}
+        multiple
+        required
       >
-        {name}
-      </SelectLabel>
+        <SelectLabel
+          fontWeight='600'
+          fontSize='16px'
+          textTransform='capitalize'
+        >
+          {name}
+        </SelectLabel>
 
-      <SelectTrigger>
-        <SelectValueText placeholder={name} />
-      </SelectTrigger>
+        <SelectTrigger>
+          <SelectValueText placeholder={name} />
+        </SelectTrigger>
 
-      <SelectContent p='8px '>
-        {list.items.map((filter, index) => (
-          <Checkbox
-            // root={{
-            //   onChange: (e) => console.log(e),
-            // }}
-            key={`${filter.value}-${index}`}
-          >
-            <SelectItem
-              item={filter}
+        <SelectContent p='8px '>
+          {list.items.map((filter, index) => (
+            <Checkbox
+              // root={{
+              //   onChange: (e) => console.log(e),
+              // }}
               key={`${filter.value}-${index}`}
             >
-              {filter.label}
-            </SelectItem>
-          </Checkbox>
-        ))}
-      </SelectContent>
-    </SelectRoot>
+              <SelectItem
+                item={filter}
+                key={`${filter.value}-${index}`}
+              >
+                {filter.label}
+              </SelectItem>
+            </Checkbox>
+          ))}
+        </SelectContent>
+      </SelectRoot>
+    </Box>
   );
 };
 

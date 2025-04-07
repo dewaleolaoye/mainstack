@@ -54,12 +54,6 @@ const FilterButton = ({ count }: Props) => {
           </Box>
         </Flex>
       </Box>
-
-      {/* <DatePicker
-        onChange={handleDateChange}
-        endDate={selectedDate}
-        startDate={selectedDate}
-      /> */}
     </>
   );
 };

@@ -1,70 +1,62 @@
 'use client';
-import { Box, Flex, Text, Input } from '@chakra-ui/react';
+import { Box, Input } from '@chakra-ui/react';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { forwardRef } from 'react';
+import Image from 'next/image';
 
 interface DatePickerProps {
-  startDate: Date;
-  endDate: Date;
-  onChange: (dates: [Date | null, Date | null]) => void;
+  selected: Date;
+  onChange: (date: Date) => void;
 }
 
 const CustomInput = forwardRef<HTMLInputElement, { value?: string; onClick?: () => void }>(
   ({ value, onClick }, ref) => (
-    <Input
-      ref={ref}
-      value={value}
-      onClick={onClick}
-      readOnly
-      border='2px solid #000'
-      borderRadius='100px'
-      p='12px 16px'
-      width='200px'
-      fontSize='14px'
-      bg='transparent'
+    <Box
+      bg='#EFF1F6'
+      borderRadius='12px'
+      p='4px 16px'
       cursor='pointer'
-      _focus={{ outline: 'none' }}
-    />
+      onClick={onClick}
+      display='flex'
+      alignItems='center'
+      justifyContent='space-between'
+      width='100%'
+    >
+      <Input
+        ref={ref}
+        value={value}
+        readOnly
+        border='none'
+        p='0'
+        width='auto'
+        fontSize='14px'
+        bg='transparent'
+        _focus={{ outline: 'none' }}
+        fontWeight='500'
+      />
+
+      <Image
+        src='/svgs/arrow-down.svg'
+        width={20}
+        height={20}
+        alt='arrow down'
+      />
+    </Box>
   )
 );
 CustomInput.displayName = 'CustomInput';
 
-const DatePicker = ({ startDate, endDate, onChange }: DatePickerProps) => {
+const DatePicker = ({ selected, onChange }: DatePickerProps) => {
   return (
     <Box>
-      <Text
-        mb={4}
-        fontWeight='600'
-      >
-        Date Range
-      </Text>
-      <Flex gap={4}>
-        <ReactDatePicker
-          selected={startDate}
-          onChange={onChange}
-          startDate={startDate}
-          endDate={endDate}
-          selectsRange
-          dateFormat='dd MMM yyyy'
-          showPopperArrow={false}
-          customInput={<CustomInput />}
-        />
-
-        <Box
-          bg='#F8F9FA'
-          borderRadius='100px'
-          p='12px 16px'
-          width='200px'
-          fontSize='14px'
-        >
-          {endDate.toLocaleDateString('en-US', {
-            day: '2-digit',
-            month: 'short',
-            year: 'numeric',
-          })}
-        </Box>
-      </Flex>
+      <ReactDatePicker
+        selected={selected}
+        onChange={(date: Date | null) => date && onChange(date)}
+        dateFormat='dd MMM yyyy'
+        showPopperArrow={false}
+        customInput={<CustomInput />}
+      />
 
       <style
         jsx
@@ -77,7 +69,7 @@ const DatePicker = ({ startDate, endDate, onChange }: DatePickerProps) => {
           font-family: inherit;
         }
         .react-datepicker__header {
-          background: white;
+          background: #fff;
           border: none;
           padding-top: 16px;
         }
@@ -99,7 +91,7 @@ const DatePicker = ({ startDate, endDate, onChange }: DatePickerProps) => {
         .react-datepicker__day--selected,
         .react-datepicker__day--keyboard-selected {
           background: #131316;
-          color: white;
+          color: #fff;
         }
         .react-datepicker__day:hover {
           border-radius: 50%;
