@@ -22,6 +22,7 @@ const Status = ({ status }: Props) => {
       fontSize='14px'
       textTransform='capitalize'
       color={mapStatus[status].color}
+      as='span'
     >
       {mapStatus[status].title}
     </Text>

@@ -1,5 +1,4 @@
 import { Box, BoxProps, Text } from '@chakra-ui/react';
-import React from 'react';
 
 interface Props extends BoxProps {
   title: string;

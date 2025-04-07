@@ -1,26 +1,19 @@
-import { Button, CloseButton, Drawer, DrawerTrigger, Flex, Text } from '@chakra-ui/react';
+'use client';
+import { CloseButton, Drawer, DrawerTrigger, Flex, Text, VStack } from '@chakra-ui/react';
 import FilterButton from './filter-button';
 import FilterDateCard from './filter-date-card';
+import TransactionFilterSelect from './TransactionFilterSelect';
+import { Button } from '@/components/ui/button';
+import { filterList, transactionStatusList, transactionTypeList } from '@/constants';
+import { useState } from 'react';
 
 const FilterTransactions = () => {
-  const filters = [
-    {
-      title: 'Today',
-      value: 'today',
-    },
-    {
-      title: 'Last 7 days',
-      value: 'last-7-days',
-    },
-    {
-      title: 'This month',
-      value: 'this-month',
-    },
-    {
-      title: 'Last 3 months',
-      value: 'last-3-months',
-    },
-  ];
+  const [transactionType, setTransactionType] = useState<string[]>([]);
+  const [transactionStatus, setTransactionStatus] = useState<string[]>([]);
+
+  console.log({ transactionStatus, transactionType });
+
+  const isDisabled = transactionType.length === 0 && transactionStatus.length === 0;
   return (
     <>
       <Drawer.Root
@@ -47,21 +40,56 @@ const FilterTransactions = () => {
             </Text>
 
             <Drawer.Body>
-              <Flex gap='8px'>
-                {filters.map(({ title, value }) => (
-                  <FilterDateCard
-                    key={title}
-                    title={title}
-                    onClick={() => console.log(value)}
-                  />
-                ))}
-              </Flex>
+              <VStack
+                alignItems='revert-layer'
+                gap='20px'
+              >
+                <Flex gap='8px'>
+                  {filterList.map(({ title, value }) => (
+                    <FilterDateCard
+                      key={title}
+                      title={title}
+                      onClick={() => console.log(value)}
+                    />
+                  ))}
+                </Flex>
+
+                <TransactionFilterSelect
+                  name='Transaction Type'
+                  items={transactionTypeList}
+                  onValueChange={({ value }) => setTransactionType(value)}
+                  defaultValue={transactionType}
+                />
+
+                <TransactionFilterSelect
+                  name='Transaction Status'
+                  items={transactionStatusList}
+                  onValueChange={({ value }) => setTransactionStatus(value)}
+                  defaultValue={transactionStatus}
+                />
+              </VStack>
             </Drawer.Body>
-            <Drawer.Footer>
+
+            <Drawer.Footer width='100%'>
               <Drawer.ActionTrigger asChild>
-                <Button variant='outline'>Cancel</Button>
+                <Button
+                  variant='outline'
+                  width='48%'
+                  bg='#fff'
+                  border='1px solid #EFF1F6'
+                  color='#131316'
+                  _hover={{}}
+                >
+                  Clear
+                </Button>
               </Drawer.ActionTrigger>
-              <Button>Save</Button>
+
+              <Button
+                width='48%'
+                disabled={isDisabled}
+              >
+                Apply
+              </Button>
             </Drawer.Footer>
 
             <Drawer.CloseTrigger asChild>

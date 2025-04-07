@@ -38,6 +38,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(function 
       _focusVisible={{
         outline: '1px solid #131316',
       }}
+      _disabled={{
+        bg: '#DBDEE5',
+        color: '#fff',
+        border: 'none',
+      }}
       {...rest}
     >
       {loading && !loadingText ? (

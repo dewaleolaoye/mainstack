@@ -89,3 +89,64 @@ export const sidebarLinks = [
     description: 'Manage your Bookings'
   },
 ];
+
+export const filterList = [
+  {
+    title: 'Today',
+    value: 'today',
+  },
+  {
+    title: 'Last 7 days',
+    value: 'last-7-days',
+  },
+  {
+    title: 'This month',
+    value: 'this-month',
+  },
+  {
+    title: 'Last 3 months',
+    value: 'last-3-months',
+  },
+];
+
+export const transactionTypeList = [
+  {
+    label: 'Store Transactions',
+    value: 'store',
+  },
+  {
+    label: 'Get Tipped ',
+    value: 'tipped',
+  },
+  {
+    label: 'Withdrawals',
+    value: 'withdrawals',
+  },
+  {
+    label: 'Chargebacks',
+    value: 'chargebacks',
+  },
+  {
+    label: 'Cashbacks',
+    value: 'cashbacks',
+  },
+  {
+    label: 'Refer & Earn',
+    value: 'refer',
+  },
+];
+
+export const transactionStatusList = [
+  {
+    label: 'Successful',
+    value: 'store',
+  },
+  {
+    label: 'Pending ',
+    value: 'pending',
+  },
+  {
+    label: 'Failed',
+    value: 'failed',
+  },
+];
