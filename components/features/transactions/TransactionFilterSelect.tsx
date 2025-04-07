@@ -53,12 +53,7 @@ const TransactionFilterSelect = ({ onValueChange, items, name, defaultValue }: P
 
         <SelectContent p='8px '>
           {list.items.map((filter, index) => (
-            <Checkbox
-              // root={{
-              //   onChange: (e) => console.log(e),
-              // }}
-              key={`${filter.value}-${index}`}
-            >
+            <Checkbox key={`${filter.value}-${index}`}>
               <SelectItem
                 item={filter}
                 key={`${filter.value}-${index}`}

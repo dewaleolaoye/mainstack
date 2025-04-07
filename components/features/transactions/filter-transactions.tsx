@@ -12,8 +12,6 @@ const FilterTransactions = () => {
   const [transactionType, setTransactionType] = useState<string[]>([]);
   const [transactionStatus, setTransactionStatus] = useState<string[]>([]);
 
-  console.log({ transactionStatus, transactionType });
-
   const isDisabled = transactionType.length === 0 && transactionStatus.length === 0;
 
   const [startDate, setStartDate] = useState(new Date());
